@@ -180,7 +180,7 @@ spec:
               - key: alpha.eksctl.io/nodegroup-name
                 operator: In
                 values:
-                - nodegroup2
+                - nodegroup1
       containers:
       - name: result
         image: sreeharshav/example-voting-app_result:latest
@@ -249,7 +249,7 @@ spec:
               - key: alpha.eksctl.io/nodegroup-name
                 operator: In
                 values:
-                - nodegroup2
+                - nodegroup1
       containers:
       - name: vote
         image: sreeharshav/example-voting-app_vote:latest
