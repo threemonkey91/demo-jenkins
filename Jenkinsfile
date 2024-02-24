@@ -29,7 +29,7 @@ pipeline {
       stage('Validating Deployment') {
          steps {
             sh 'kubectl get pods,deployment,svc,ing'
-            sh 'kubectl deploy deployment,svc,ing --all'
+            sh 'kubectl delete deployment,svc,ing --all'
          }
       }
    }
