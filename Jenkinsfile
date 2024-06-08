@@ -1,12 +1,13 @@
 pipeline {
    agent any
    environment {
-      PROJECT = 'WELCOME TO K8S B25 BATCH - Jenkins Class'
+      PROJECT = 'WELCOME TO K8S B27 BATCH - Jenkins Class'
+      CLUSTER_NAME = 'k8sb27-cluster-01'
    }
    stages {
       stage('Check The Kubernetes Access') {
          steps {
-            sh 'aws eks --region us-east-2 update-kubeconfig --name k8sb25-cluster-01'
+            sh "aws eks --region us-east-2 update-kubeconfig --name ${CLUSTER_NAME}"
             sh 'kubectl get pods -A'
             sh 'kubectl get ns'
          }
