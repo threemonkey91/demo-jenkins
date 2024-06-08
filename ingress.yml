@@ -22,7 +22,7 @@ spec:
     - "vote.k8sb27.xyz"
     - "result.k8sb27.xyz"
     - "www.k8sb27.xyz"
-    secretName: my-tls-secret
+    secretName: my-tls-secret-wc
   rules:
   - host: vote.k8sb27.xyz
     http:
