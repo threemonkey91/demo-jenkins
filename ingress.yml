@@ -14,17 +14,17 @@ metadata:
     alb.ingress.kubernetes.io/success-codes: "200"
     alb.ingress.kubernetes.io/unhealthy-threshold-count: "2"
     #Make sure our SSL Cert and Cluster is in same AWS Account.
-    alb.ingress.kubernetes.io/certificate-arn: 'arn:aws:acm:us-east-2:009412611595:certificate/5c295a02-7c3e-422e-a29e-5aa0a1657da6'
+    alb.ingress.kubernetes.io/certificate-arn: 'arn:aws:acm:us-east-2:721834156908:certificate/f40feec5-c9d0-4fed-a78b-327b60e44e00'
 spec:
   ingressClassName: alb
   tls:
   - hosts:
-    - "vote.k8sb25.xyz"
-    - "result.k8sb25.xyz"
-    - "www.k8sb25.xyz"
+    - "vote.k8sb27.xyz"
+    - "result.k8sb27.xyz"
+    - "www.k8sb27.xyz"
     secretName: my-tls-secret
   rules:
-  - host: vote.k8sb25.xyz
+  - host: vote.k8sb27.xyz
     http:
       paths:
         - path: /
@@ -34,7 +34,7 @@ spec:
               name: vote
               port:
                 number: 80
-  - host: result.k8sb25.xyz
+  - host: result.k8sb27.xyz
     http:
       paths:
         - path: /
@@ -44,7 +44,7 @@ spec:
               name: result
               port:
                 number: 80
-  - host: www.k8sb25.xyz
+  - host: www.k8sb27.xyz
     http:
       paths:
         - path: /
