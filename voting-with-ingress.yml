@@ -232,7 +232,7 @@ metadata:
   labels:
     app: vote
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: vote

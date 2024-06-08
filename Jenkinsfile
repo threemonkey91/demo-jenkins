@@ -29,14 +29,22 @@ pipeline {
          }
       }
       stage('Validating Deployment') {
+         steps {
+            sh 'kubectl get pods,deployment,svc,ing'
+         }
+      }
+      stage('Destroy') {
          when {
             expression {
                "${env.DESTROY}" == 'TRUE'
             }
          }
          steps {
-            sh 'kubectl get pods,deployment,svc,ing'
-            sh 'kubectl delete deployment,svc,ing --all'
+            sh 'ls -al'
+            sh 'kubectl delete -f voting-with-ingress.yml'
+            sh 'kubectl delete -f ingress.yml'
+            sh 'kubectl delete -f ingress-nk.yml'
+            sh 'kubectl get pods,svc,ingress'
          }
       }
    }
