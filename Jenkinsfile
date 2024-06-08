@@ -3,7 +3,7 @@ pipeline {
    environment {
       PROJECT = 'WELCOME TO K8S B27 BATCH - Jenkins Class'
       CLUSTER_NAME = 'k8sb27-cluster-01'
-      DESTROY = 'FALSE'
+      DESTROY = 'TRUE'
    }
    stages {
       stage('Check The Kubernetes Access') {
