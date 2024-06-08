@@ -1,3 +1,4 @@
+def DESTROY = false
 pipeline {
    agent any
    environment {
@@ -28,6 +29,9 @@ pipeline {
          }
       }
       stage('Validating Deployment') {
+         when {
+            $DESTROY = "True"
+         }
          steps {
             sh 'kubectl get pods,deployment,svc,ing'
             sh 'kubectl delete deployment,svc,ing --all'
