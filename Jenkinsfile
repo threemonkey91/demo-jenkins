@@ -1,9 +1,9 @@
-def DESTROY = false
 pipeline {
    agent any
    environment {
       PROJECT = 'WELCOME TO K8S B27 BATCH - Jenkins Class'
       CLUSTER_NAME = 'k8sb27-cluster-01'
+      DESTROY = 'FALSE'
    }
    stages {
       stage('Check The Kubernetes Access') {
@@ -30,7 +30,9 @@ pipeline {
       }
       stage('Validating Deployment') {
          when {
-            $DESTROY = "True"
+            expression {
+               "${env.DESTROY}" == 'TRUE'
+            }
          }
          steps {
             sh 'kubectl get pods,deployment,svc,ing'
