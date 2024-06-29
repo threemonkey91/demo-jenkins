@@ -29,6 +29,6 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: vote
+              name: vote-ingress
               port:
                 number: 80

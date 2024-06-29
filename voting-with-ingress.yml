@@ -136,25 +136,25 @@ spec:
     app: result
   type: NodePort #Needed for AWS LB Controller to Create LB.
 
-# result for NLB
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: result
-  labels:
-    app: result
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: nlb
-    service.beta.kubernetes.io/aws-load-balancer-internal: "false"
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    targetPort: 80
-    name: result-service
-  selector:
-    app: result
+# Uncomment below code if you want a NLB fir RESULT Service.
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: result
+#   labels:
+#     app: result
+#   annotations:
+#     service.beta.kubernetes.io/aws-load-balancer-type: nlb
+#     service.beta.kubernetes.io/aws-load-balancer-internal: "false"
+# spec:
+#   type: LoadBalancer
+#   ports:
+#   - port: 80
+#     targetPort: 80
+#     name: result-service
+#   selector:
+#     app: result
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -205,25 +205,25 @@ spec:
     app: vote
   type: NodePort #Needed for AWS LB Controller to Create LB.
 
-# vote for nlb
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: vote
-  labels:
-    apps: vote
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: nlb
-    service.beta.kubernetes.io/aws-load-balancer-internal: "false"
-spec:
-  type: LoadBalancer
-  ports:
-    - port: 80
-      targetPort: 80
-      name: vote-service
-  selector:
-    app: vote
+# Uncomment below code if you want a NLB fir VOTE Service.
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: vote
+#   labels:
+#     apps: vote
+#   annotations:
+#     service.beta.kubernetes.io/aws-load-balancer-type: nlb
+#     service.beta.kubernetes.io/aws-load-balancer-internal: "false"
+# spec:
+#   type: LoadBalancer
+#   ports:
+#     - port: 80
+#       targetPort: 80
+#       name: vote-service
+#   selector:
+#     app: vote
 ---
 apiVersion: apps/v1
 kind: Deployment

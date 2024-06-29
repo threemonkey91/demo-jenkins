@@ -31,7 +31,7 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: vote
+              name: vote-ingress
               port:
                 number: 80
   - host: result.k8sb28.xyz
@@ -41,7 +41,7 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: result
+              name: result-ingress
               port:
                 number: 80
   - host: www.k8sb28.xyz
@@ -51,6 +51,6 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: vote
+              name: vote-ingress
               port:
                 number: 80
