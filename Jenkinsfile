@@ -3,7 +3,7 @@ pipeline {
    environment {
       PROJECT = 'WELCOME TO K8S B28 BATCH - Jenkins & AWS EKS Class'
       CLUSTER_NAME = 'k8sb28-cluster-01'
-      DESTROY = 'FALSE'
+      DESTROY = 'TRUE'
    }
    stages {
       stage('Check The Kubernetes Access') {
@@ -14,6 +14,11 @@ pipeline {
          }
       }
       stage('Deploy Voting App') {
+         when {
+            expression {
+               "${env.DESTROY}" == 'FALSE'
+            }
+         }
          steps {
             sh 'ls -al'
             sh 'kubectl apply -f voting-with-ingress.yml'
@@ -23,12 +28,22 @@ pipeline {
          }
       }
       stage('Deploy Ingress for Vote & Result') {
+         when {
+            expression {
+               "${env.DESTROY}" == 'FALSE'
+            }
+         }
          steps {
             sh 'kubectl apply -f ingress.yml'
             sh 'kubectl get ingress'
          }
       }
       stage('Validating Deployment') {
+         when {
+            expression {
+               "${env.DESTROY}" == 'FALSE'
+            }
+         }
          steps {
             sh 'kubectl get pods,deployment,svc,ing'
          }
