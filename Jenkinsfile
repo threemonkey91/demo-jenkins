@@ -10,6 +10,7 @@ pipeline {
          steps {
             sh "aws eks --region us-east-2 update-kubeconfig --name ${CLUSTER_NAME}"
             sh 'kubectl get pods -A'
+            sh 'kubectl get deploy'
             sh 'kubectl get ns'
          }
       }
