@@ -19,12 +19,12 @@ spec:
   ingressClassName: alb
   tls:
   - hosts:
-    - "vote.k8sb27.xyz"
-    - "result.k8sb27.xyz"
-    - "www.k8sb27.xyz"
+    - "vote.k8sb28.xyz"
+    - "result.k8sb28.xyz"
+    - "www.k8sb28.xyz"
     secretName: my-tls-secret-wc
   rules:
-  - host: vote.k8sb27.xyz
+  - host: vote.k8sb28.xyz
     http:
       paths:
         - path: /
@@ -34,7 +34,7 @@ spec:
               name: vote
               port:
                 number: 80
-  - host: result.k8sb27.xyz
+  - host: result.k8sb28.xyz
     http:
       paths:
         - path: /
@@ -44,7 +44,7 @@ spec:
               name: result
               port:
                 number: 80
-  - host: www.k8sb27.xyz
+  - host: www.k8sb28.xyz
     http:
       paths:
         - path: /

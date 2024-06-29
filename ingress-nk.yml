@@ -19,10 +19,10 @@ spec:
   ingressClassName: alb
   tls:
   - hosts:
-    - "k8sb27.xyz"
+    - "k8sb28.xyz"
     secretName: my-tls-secret-nk
   rules:
-  - host: k8sb27.xyz
+  - host: k8sb28.xyz
     http:
       paths:
         - path: /
