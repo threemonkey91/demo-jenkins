@@ -15,11 +15,6 @@ pipeline {
          }
       }
       stage('Deploy Voting App') {
-         when {
-            expression {
-               "${env.DESTROY}" == 'FALSE'
-            }
-         }
          steps {
             sh 'ls -al'
             sh 'kubectl apply -f voting-with-ingress.yml'
